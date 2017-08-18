@@ -1,9 +1,9 @@
-import WelcomeComponent from "./welcome.component";
+import WelcomeComponent from './welcome.component';
 
 export let WelcomeRoute = {
-  "title": "Welcome",
-  "path": "welcome",
-  "url": "/welcome"
+  'title': 'Welcome',
+  'path': 'welcome',
+  'url': '/welcome'
 };
 
 export default [
