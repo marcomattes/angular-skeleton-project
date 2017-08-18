@@ -23,7 +23,7 @@ export class ServiceUtilities {
     return mappedValue;
   }
 
-  handleError(error: Response): ErrorObservable<Error> {
+  handleError(error: Response): ErrorObservable {
     let errorMessage = 'Server Error';
     let errorJson: any = error.json();
 
