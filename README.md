@@ -3,17 +3,17 @@ A simple angular https://github.com/AngularClass/angular-starter2 skeleton proje
 
 ## usage
 Build the project:
-npm install
+* npm install
 
 Test the project (and watch for changes):
-npm test
-npm run test:watch
+* npm test
+* npm run test:watch
 
 Test with code coverage:
-npm run coverage
+* npm run coverage
 
 Package the project:
-npm build
+* npm build
 
 Run the project:
-npm start
+* npm start
