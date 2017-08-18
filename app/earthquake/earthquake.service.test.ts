@@ -2,19 +2,18 @@ import { getTestBed } from '@angular/core/testing';
 import { MockBackend } from '@angular/http/testing';
 
 import { expect } from 'chai';
-import TestingUtilities from "../shared/test.utilities";
+import TestingUtilities from '../shared/test.utilities';
 
 import EarthquakeService from './earthquake.service';
-import Earthquake from "../earthquake/earthquake";
-import { MOCK_EARTHQUAKE_JSON, mockEarthquakes } from "./earthquake.test.mocks";
+import { MOCK_EARTHQUAKE_JSON, mockEarthquakes } from './earthquake.test.mocks';
 
 describe(`EarthquakeServiceTests`, () => {
-  let service: EarthquakeService
-  let backend: MockBackend
+  let service: EarthquakeService;
+  let backend: MockBackend;
 
   beforeEach(() => {
     TestingUtilities.configureTestingModuleForMockHttp(getTestBed(), function () {
-      return EarthquakeService
+      return EarthquakeService;
     });
 
     backend = getTestBed().get(MockBackend);

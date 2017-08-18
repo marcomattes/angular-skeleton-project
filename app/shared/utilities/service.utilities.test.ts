@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 
 import { expect } from 'chai';
 import { SinonMock, mock } from 'sinon';
-import { TestUtilities } from './test.utilities';
 
 import { ServiceUtilities } from './service.utilities';
 import { ToastrService } from '../toastr.service';
@@ -21,35 +20,6 @@ describe(`ServiceUtilitiesTests`, () => {
     mockToastr = mock(toastr);
 
     utils = new ServiceUtilities(router, toastr);
-  });
-
-  it('map should navigate to login and return empty string if content-type is null', () => {
-    let response: Response = new Response(new ResponseOptions({
-      body: '',
-      headers: new Headers()
-    }));
-
-    // mockRouter.expects('navigate').withExactArgs([LoginRoute.url]);
-
-    expect(utils.map(response)).to.be.equal('');
-
-    TestUtilities.verifySinonMocks(mockRouter);
-  });
-
-  it(`map should navigate to login and return empty string if not json content-type`, () => {
-    let headers: Headers = new Headers();
-    headers.append('content-type', 'text/html;charset=UTF-8');
-
-    let response: Response = new Response(new ResponseOptions({
-      body: '',
-      headers: headers
-    }));
-
-    // mockRouter.expects('navigate').withExactArgs([LoginRoute.url]);
-
-    expect(utils.map(response)).to.be.equal('');
-
-    TestUtilities.verifySinonMocks(mockRouter);
   });
 
   it(`map should return json object from body`, () => {

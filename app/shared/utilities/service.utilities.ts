@@ -14,14 +14,7 @@ export class ServiceUtilities {
   boundHandleError: any;
 
   map(response: Response): any {
-    let contentTypeHeader: string = response.headers.get('content-type');
-
-    if (contentTypeHeader && contentTypeHeader.match('json')) {
-      return response.json();
-    } else {
-      // this.router.navigate([LoginRoute.url]);
-      return '';
-    }
+    return response.json();
   }
 
   mapWithCache(response: Response, cacheCallback: Function): any {

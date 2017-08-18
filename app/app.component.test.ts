@@ -3,19 +3,19 @@ import { getTestBed, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
 import { expect } from 'chai';
-import { mock, SinonMock } from "sinon";
+import { mock, SinonMock } from 'sinon';
 
 import AppComponent from './app.component';
 
-import { ToastrService } from "./shared/toastr.service";
+import { ToastrService } from './shared/toastr.service';
 
 describe(`AppComponentTests`, () => {
-  let mockToastr: SinonMock
+  let mockToastr: SinonMock;
 
   beforeEach(() => {
     let toastrService: ToastrService = new ToastrService(null);
     mockToastr = mock(toastrService);
-    mockToastr.expects("setViewContainer");
+    mockToastr.expects('setViewContainer');
 
     TestBed.configureTestingModule({
       declarations: [AppComponent],

@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { BaseRequestOptions, Http, Response, ResponseOptions, XHRBackend } from '@angular/http';
 import { MockBackend, MockConnection } from '@angular/http/testing';
-import { SinonMock } from "sinon";
+import { SinonMock } from 'sinon';
 
 export default class TestUtilities {
   static configureTestingModuleForMockHttp(testbed: TestBed, getServiceFunction: Function) {
@@ -43,8 +43,8 @@ export default class TestUtilities {
   }
 
   static verifySinonMocks(...mocks: Array<SinonMock>) {
-    for(var count = 0; count < mocks.length; count++) {
-      let mock:SinonMock = mocks[count];
+    for (var count = 0; count < mocks.length; count++) {
+      let mock: SinonMock = mocks[count];
       mock.verify();
     }
   }

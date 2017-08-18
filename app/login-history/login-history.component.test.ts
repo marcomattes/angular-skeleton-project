@@ -6,7 +6,7 @@ import { expect } from 'chai';
 
 import LoginHistoryComponent from './login-history.component';
 import { LoginHistoryRoute } from './routes';
-import LoginHistoryService from "./login-history.service";
+import LoginHistoryService from './login-history.service';
 
 describe(`LoginHistoryComponentTests`, () => {
   beforeEach(() => {

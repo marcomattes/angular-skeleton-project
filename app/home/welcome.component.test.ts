@@ -35,7 +35,7 @@ describe(`WelcomeComponentTests`, () => {
     expect(heading.nativeElement.textContent).to.contain(WelcomeRoute.title);
 
     const body = fixture.debugElement.query(By.css('div.container'));
-    expect(body.query(By.css('div.row > div')).nativeElement.textContent).to.equal("Developed by:");
-    expect(body.query(By.css("div.row > h4")).nativeElement.textContent).to.equal("Sean Sexton");
+    expect(body.query(By.css('div.row > div')).nativeElement.textContent).to.equal('Developed by:');
+    expect(body.query(By.css('div.row > h4')).nativeElement.textContent).to.equal('Skeeterdrums');
   });
 });

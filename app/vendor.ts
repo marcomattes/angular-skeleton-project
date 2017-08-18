@@ -11,4 +11,4 @@ import 'rxjs';
 
 // Other vendors for example jQuery, Lodash or Bootstrap
 // You can import js, ts, css, sass, ...
-import "../node_modules/ng2-toastr/bundles/ng2-toastr.min.css";
+import '../node_modules/ng2-toastr/bundles/ng2-toastr.min.css';

@@ -1,9 +1,9 @@
-import LoginHistoryComponent from "./login-history.component";
+import LoginHistoryComponent from './login-history.component';
 
 export let LoginHistoryRoute = {
-  "title" : "Login History",
-  "path": "login-history",
-  "url": "/login-history"
+  'title' : 'Login History',
+  'path': 'login-history',
+  'url': '/login-history'
 }
 
 export default [

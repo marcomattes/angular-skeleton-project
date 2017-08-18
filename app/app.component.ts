@@ -1,17 +1,17 @@
 import { Component, ViewContainerRef } from '@angular/core';
 
-import { WelcomeRoute } from "./home/routes";
-import { LoginHistoryRoute } from "./login-history/routes";
-import { EarthquakeRoute } from "./earthquake/routes";
+import { WelcomeRoute } from './home/routes';
+import { LoginHistoryRoute } from './login-history/routes';
+import { EarthquakeRoute } from './earthquake/routes';
 
-import { ToastrService } from "./shared/toastr.service";
+import { ToastrService } from './shared/toastr.service';
 
 @Component({
   selector: 'my-app',
   templateUrl: 'app.component.html'
 })
 export default class AppComponent {
-  static readonly Title: string = "Mobile Tech Challenges";
+  static readonly Title: string = 'Mobile Tech Challenges';
   pageTitle: string = AppComponent.Title;
 
   welcomeUrl: string = WelcomeRoute.url;

@@ -1,13 +1,13 @@
-import { Component, OnInit, ViewContainerRef } from "@angular/core";
+import { Component, OnInit } from '@angular/core';
 
-import EarthquakeService from "./earthquake.service";
-import { EarthquakeRoute } from "./routes";
-import Earthquake from "./earthquake";
+import EarthquakeService from './earthquake.service';
+import { EarthquakeRoute } from './routes';
+import Earthquake from './earthquake';
 
-import { ToastrService } from "../shared/toastr.service";
+import { ToastrService } from '../shared/toastr.service';
 
 @Component({
-  templateUrl: "earthquake.component.html",
+  templateUrl: 'earthquake.component.html',
   styleUrls: []
 })
 export default class EarthquakeComponent implements OnInit {
@@ -22,7 +22,7 @@ export default class EarthquakeComponent implements OnInit {
       earthquakes => {
         this.earthquakes = earthquakes;
         this.loading = false;
-        this.toastr.success("Data retrieved successfully!");
+        this.toastr.success('Data retrieved successfully!');
       },
       error => {
         this.errorMessage = <any>error;
