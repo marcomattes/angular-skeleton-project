@@ -1,5 +1,5 @@
 # angular-skeleton-project
-A simple angular https://github.com/AngularClass/angular-starter2 skeleton project with unit testing, code coverage, and webpack integrated. I believe (can't 100% remember) is based on https://github.com/AngularClass/angular-starter when it was built for Angular 2.
+A simple angular skeleton project with unit testing, code coverage, and webpack integrated. I believe this is based on https://github.com/AngularClass/angular-starter when it was built for Angular 2.
 
 ## usage
 Build the project:
