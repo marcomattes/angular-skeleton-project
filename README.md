@@ -13,7 +13,7 @@ Test with code coverage:
 * npm run coverage
 
 Package the project:
-* npm build
+* npm run build
 
 Run the project:
 * npm start
