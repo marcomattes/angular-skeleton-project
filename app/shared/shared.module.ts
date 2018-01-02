@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { ToastModule } from 'ng2-toastr/ng2-toastr';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import { LoadingIconComponent } from './loading-icon/loading-icon.component';
 import { ToastrService } from './toastr.service';
@@ -21,7 +22,8 @@ import { ToastrService } from './toastr.service';
     CommonModule,
     FormsModule,
     HttpModule,
-    LoadingIconComponent
+    LoadingIconComponent,
+    BrowserAnimationsModule
   ],
   providers: [
     ToastrService
