@@ -1,5 +1,5 @@
 # angular-skeleton-project
-A simple angular skeleton project with unit testing, code coverage, and webpack integrated. I believe this is based on https://github.com/AngularClass/angular-starter when it was built for Angular 2.
+A simple angular skeleton project with unit testing, code coverage, and webpack integrated. I believe this is based on https://github.com/AngularClass/angular-starter when it was built for Angular 4.
 
 ## usage
 Build the project:
@@ -11,6 +11,9 @@ Test the project (and watch for changes):
 
 Test with code coverage:
 * npm run coverage
+
+Compile with Typescript compiler:
+* npm run tsc
 
 Package the project:
 * npm run build
