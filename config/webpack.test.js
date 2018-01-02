@@ -5,20 +5,14 @@ module.exports = {
   devtool: 'inline-source-map',
 
   entry: {
-      'test': 'mocha-loader!./config/mocha-test-shim.js'
+    'test': 'mocha-loader!./config/mocha-test-shim.js'
   },
 
   resolve: {
-    extensions: ['', '.ts', '.js']
+    extensions: ['.ts', '.js']
   },
 
   module: {
-    postLoaders: [{
-      test: /\.(js|ts)/,
-      exclude: /(node_modules|bower_components)/,
-      include: helpers.root('app'),  // instrument only testing sources with Istanbul, after other loaders run
-      loader: 'istanbul-instrumenter-loader'
-    }],
     loaders: [
       {
         test: /\.ts$/,
@@ -26,22 +20,29 @@ module.exports = {
       },
       {
         test: /\.html$/,
-        loader: 'html'
+        loader: 'html-loader'
 
       },
       {
         test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
-        loader: 'null'
+        loader: 'null-loader'
       },
       {
         test: /\.css$/,
         exclude: helpers.root('src', 'app'),
-        loader: 'null'
+        loader: 'null-loader'
       },
       {
         test: /\.css$/,
         include: helpers.root('src', 'app'),
-        loader: 'raw'
+        loader: 'raw-loader'
+      },
+      {
+        test: /\.(js|ts)/,
+        exclude: /(node_modules|bower_components)/,
+        include: helpers.root('app'),  // instrument only testing sources with Istanbul, after other loaders run
+        loader: 'istanbul-instrumenter-loader',
+        enforce: 'post'
       }
     ]
   }

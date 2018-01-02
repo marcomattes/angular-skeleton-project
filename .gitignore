@@ -11,3 +11,7 @@ _test-output
 _temp
 /dist/
 /.tmp/
+coverage
+.nyc_output
+reports
+.DS_Store
