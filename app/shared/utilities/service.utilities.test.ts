@@ -13,10 +13,10 @@ describe(`ServiceUtilitiesTests`, () => {
   let mockToastr: SinonMock;
 
   beforeEach(() => {
-    let router: Router = new Router(null, null, null, null, null, null, null, []);
+    let router: Router = <Router>{};
     mockRouter = mock(router);
 
-    let toastr: ToastrService = new ToastrService(null);
+    let toastr: ToastrService = <ToastrService>{};
     mockToastr = mock(toastr);
 
     utils = new ServiceUtilities(router, toastr);
