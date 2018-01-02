@@ -1,5 +1,3 @@
-import { expect } from 'chai';
-
 import { StringUtilities } from './string.utilities';
 
 describe(`StringUtilitiesTests`, () => {
@@ -10,14 +8,14 @@ describe(`StringUtilitiesTests`, () => {
   });
 
   it(`should return empty string instead of null`, () => {
-    expect(utils.nullOrEmpty(null)).to.be.equal('');
+    expect(utils.nullOrEmpty(null)).toBe('');
   });
 
   it(`should return empty string instead of undefined`, () => {
-    expect(utils.nullOrEmpty(undefined)).to.be.equal('');
+    expect(utils.nullOrEmpty(undefined)).toBe('');
   });
 
   it(`should return original value if set`, () => {
-    expect(utils.nullOrEmpty('test')).to.be.equal('test');
+    expect(utils.nullOrEmpty('test')).toBe('test');
   });
 });

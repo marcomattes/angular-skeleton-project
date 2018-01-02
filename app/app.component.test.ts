@@ -1,27 +1,25 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { getTestBed, TestBed } from '@angular/core/testing';
+import { getTestBed, TestBed, ComponentFixture } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-
-import { expect } from 'chai';
-import { mock, SinonMock } from 'sinon';
 
 import AppComponent from './app.component';
 
 import { ToastrService } from './shared/toastr.service';
 
 describe(`AppComponentTests`, () => {
-  let mockToastr: SinonMock;
+  let mockToastr: ToastrService;
+  let fixture: ComponentFixture<AppComponent>;
 
   beforeEach(() => {
-    let toastrService: ToastrService = new ToastrService(null);
-    mockToastr = mock(toastrService);
-    mockToastr.expects('setViewContainer');
+    mockToastr = jasmine.createSpyObj('', ['setViewContainer']);
 
     TestBed.configureTestingModule({
       declarations: [AppComponent],
       schemas: [NO_ERRORS_SCHEMA],
-      providers: [{ provide: ToastrService, useValue: toastrService }]
+      providers: [{ provide: ToastrService, useValue: mockToastr }]
     });
+
+    fixture = TestBed.createComponent(AppComponent);
   });
 
   afterEach(() => {
@@ -29,18 +27,14 @@ describe(`AppComponentTests`, () => {
   });
 
   it(`should be  initialized`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-
-    expect(fixture).to.exist;
-    expect(fixture.componentRef).to.exist;
+    expect(fixture).toBeDefined();
+    expect(fixture.componentRef).toBeDefined();
   });
 
   it('should display title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-
     fixture.detectChanges();
 
     const navbar = fixture.debugElement.query(By.css('a.navbar-brand'));
-    expect(navbar.nativeElement.textContent).to.equal(AppComponent.Title);
+    expect(navbar.nativeElement.textContent).toBe(AppComponent.Title);
   });
 });

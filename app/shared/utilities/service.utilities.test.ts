@@ -1,25 +1,19 @@
 import { Response, ResponseOptions, Headers } from '@angular/http';
 import { Router } from '@angular/router';
 
-import { expect } from 'chai';
-import { SinonMock, mock } from 'sinon';
-
 import { ServiceUtilities } from './service.utilities';
 import { ToastrService } from '../toastr.service';
 
 describe(`ServiceUtilitiesTests`, () => {
   let utils: ServiceUtilities;
-  let mockRouter: SinonMock;
-  let mockToastr: SinonMock;
+  let mockRouter: Router;
+  let mockToastr: ToastrService;
 
   beforeEach(() => {
-    let router: Router = <Router>{};
-    mockRouter = mock(router);
+    mockRouter = jasmine.createSpyObj('', ['']);
+    mockToastr = jasmine.createSpyObj('', ['']);
 
-    let toastr: ToastrService = <ToastrService>{};
-    mockToastr = mock(toastr);
-
-    utils = new ServiceUtilities(router, toastr);
+    utils = new ServiceUtilities(mockRouter, mockToastr);
   });
 
   it(`map should return json object from body`, () => {
@@ -40,7 +34,7 @@ describe(`ServiceUtilitiesTests`, () => {
       withCredentials: true
     };
 
-    expect(utils.getCommonRequestOptions()).to.deep.equal(expectedOptions);
+    expect(utils.getCommonRequestOptions()).toEqual(expectedOptions);
   });
 
   it('getCommonRequestOptions should return default options extended with provided headers', () => {
@@ -52,6 +46,6 @@ describe(`ServiceUtilitiesTests`, () => {
       headers: headers
     };
 
-    expect(utils.getCommonRequestOptions(headers)).to.deep.equal(expectedOptions);
+    expect(utils.getCommonRequestOptions(headers)).toEqual(expectedOptions);
   });
 });

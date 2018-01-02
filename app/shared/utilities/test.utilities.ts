@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 
 import { MockBackend, MockConnection } from '@angular/http/testing';
 import { TestBed } from '@angular/core/testing';
-import { SinonMock } from 'sinon';
 
 import { ServiceUtilities } from './service.utilities';
 import { StringUtilities } from './string.utilities';
@@ -61,12 +60,5 @@ export class TestUtilities {
       status: 200,
       headers: headers
     });
-  }
-
-  static verifySinonMocks(...mocks: Array<SinonMock>): void {
-    for (let count = 0; count < mocks.length; count++) {
-      let mock: SinonMock = mocks[count];
-      mock.verify();
-    }
   }
 }
