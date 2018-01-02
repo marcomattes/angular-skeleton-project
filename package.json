@@ -1,7 +1,7 @@
 {
   "name": "mobile-tech-challenges",
   "version": "1.0.1",
-  "description": "Captech's Mobile tech challenges, angular 2 flavor",
+  "description": "Captech's Mobile tech challenges, angular 4 flavor",
   "scripts": {
     "start": "webpack-dev-server --inline --progress --port 8091",
     "lint": "tslint ./app/**/*.ts -t verbose",
