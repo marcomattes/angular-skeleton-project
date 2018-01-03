@@ -4,7 +4,7 @@ module.exports = function (config) {
     var _config = {
         basePath: '',
 
-        frameworks: ['jasmine'],
+        frameworks: ['jasmine', 'source-map-support'],
 
         files: [
             {
