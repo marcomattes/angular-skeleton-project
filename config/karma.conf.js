@@ -18,7 +18,7 @@ module.exports = function (config) {
         reporters: ['spec', 'kjhtml'],
 
         preprocessors: {
-            './karma-test-shim.js': ['webpack', 'sourcemap']
+            './karma-test-shim.js': ['webpack']
         },
 
         specReporter: {

@@ -13,6 +13,7 @@ export class TestUtilities {
 
   static configureTestingModuleForMockHttp(testbed: TestBed, getServiceFunction: Function): void {
     let toastr: ToastrService = new ToastrService(null);
+    let router: Router = jasmine.createSpyObj('', ['']);
 
     testbed.configureTestingModule({
       providers: [
@@ -20,7 +21,7 @@ export class TestUtilities {
         StringUtilities,
         BaseRequestOptions,
         MockBackend,
-        { provide: Router, useValue: new Router(null, null, null, null, null, null, null, []) },
+        { provide: Router, useValue: router },
         { provide: ToastrService, useValue: toastr },
         getServiceFunction(),
         {

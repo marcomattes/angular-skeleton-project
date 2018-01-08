@@ -1,4 +1,5 @@
 var webpackConfig = require('./webpack.test.ci');
+var path = require('path');
 
 module.exports = function (config) {
     var _config = {
@@ -8,7 +9,7 @@ module.exports = function (config) {
 
         files: [
             {
-                pattern: './config/karma-test-shim.js',
+                pattern: './karma-test-shim.js',
                 watched: true
             }
         ],
@@ -18,7 +19,7 @@ module.exports = function (config) {
         reporters: ['spec', 'coverage-istanbul', 'junit'],
 
         preprocessors: {
-            './config/karma-test-shim.js': ['webpack']
+            './karma-test-shim.js': ['webpack']
         },
 
         specReporter: {
@@ -54,12 +55,13 @@ module.exports = function (config) {
         },
 
         coverageIstanbulReporter: {
+            dir: path.join(__dirname, '../reports'),
             reports: ['html', 'cobertura'],
             fixWebpackSourcePaths: true,
             skipFilesWithNoCoverage: false,
             'report-config': {
                 html: {
-                    subdir: 'html'
+                    subdir: 'coverage-html'
                 }
             }
         }

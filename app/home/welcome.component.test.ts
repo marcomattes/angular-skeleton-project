@@ -2,7 +2,7 @@ import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { getTestBed, TestBed, ComponentFixture } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
-import WelcomeComponent from './welcome.component';
+import { WelcomeComponent } from './welcome.component';
 import { WelcomeRoute } from './routes';
 
 describe(`WelcomeComponentTests`, () => {

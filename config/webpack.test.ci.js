@@ -11,13 +11,13 @@ module.exports = merge(common, {
             test: /\.ts$/,
             enforce: 'pre',
             loader: 'happypack/loader?id=tslint',
-            exclude: /(\.spec\.ts|node_modules)$/,
+            exclude: /(\.spec\.ts|\.test\.ts|node_modules)$/,
         },
         {
             test: /\.ts$/,
             loader: 'happypack/loader?id=coverage',
             enforce: 'post',
-            exclude: /(\.spec\.ts|node_modules|bower_components)/
+            exclude: /(\.spec\.ts|\.test\.ts|node_modules|bower_components)/
         }]
     },
     plugins: [

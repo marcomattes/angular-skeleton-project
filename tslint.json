@@ -73,8 +73,5 @@
       "parameter",
       "member-variable-declaration"
     ]
-  },
-  "rulesDirectory": [
-    "node_modules/tslint-eslint-rules/dist/rules"
-  ]
+  }
 }

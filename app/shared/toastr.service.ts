@@ -3,6 +3,8 @@ import { ToastsManager, Toast } from 'ng2-toastr/ng2-toastr';
 
 @Injectable()
 export class ToastrService {
+  static readonly DATA_LOAD_SUCCESS: string = 'Data retrieved successfully!';
+
   constructor(private toastr: ToastsManager) { }
 
   success(message: string) {

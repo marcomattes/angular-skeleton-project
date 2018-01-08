@@ -2,9 +2,11 @@ import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { getTestBed, TestBed, ComponentFixture } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
-import AppComponent from './app.component';
+import { AppComponent } from './app.component';
 
 import { ToastrService } from './shared/toastr.service';
+import { WelcomeRoute } from './home/routes';
+import { EarthquakeRoute } from './earthquake/routes';
 
 describe(`AppComponentTests`, () => {
   let mockToastr: ToastrService;
@@ -24,17 +26,20 @@ describe(`AppComponentTests`, () => {
 
   afterEach(() => {
     getTestBed().resetTestingModule();
+
+    expect(mockToastr.setViewContainer).toHaveBeenCalled();
   });
 
   it(`should be  initialized`, () => {
     expect(fixture).toBeDefined();
     expect(fixture.componentRef).toBeDefined();
-  });
 
-  it('should display title', () => {
-    fixture.detectChanges();
+    expect(fixture.componentInstance.pageTitle).toBe(AppComponent.Title);
 
-    const navbar = fixture.debugElement.query(By.css('a.navbar-brand'));
-    expect(navbar.nativeElement.textContent).toBe(AppComponent.Title);
+    expect(fixture.componentInstance.welcomeTitle).toBe(WelcomeRoute.title);
+    expect(fixture.componentInstance.welcomeUrl).toBe(WelcomeRoute.url);
+
+    expect(fixture.componentInstance.earthquakeTitle).toBe(EarthquakeRoute.title);
+    expect(fixture.componentInstance.earthquakeUrl).toBe(EarthquakeRoute.url);
   });
 });

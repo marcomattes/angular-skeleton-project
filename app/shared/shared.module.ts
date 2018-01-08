@@ -29,4 +29,4 @@ import { ToastrService } from './toastr.service';
     ToastrService
   ]
 })
-export default class SharedModule { }
+export class SharedModule { }
