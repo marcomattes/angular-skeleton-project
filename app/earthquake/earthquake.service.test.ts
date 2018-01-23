@@ -11,7 +11,7 @@ describe(`EarthquakeServiceTests`, () => {
   let backend: MockBackend;
 
   beforeEach(() => {
-    TestUtilities.configureTestingModuleForMockHttp(getTestBed(), function () {
+    TestUtilities.configureTestingModuleForMockHttp(getTestBed(), () => {
       return EarthquakeService;
     });
 
@@ -23,7 +23,7 @@ describe(`EarthquakeServiceTests`, () => {
     getTestBed().resetTestingModule();
   });
 
-  it(`should be  initialized`, () => {
+  it(`should be initialized`, () => {
     expect(service).toBeDefined();
   });
 
@@ -32,6 +32,8 @@ describe(`EarthquakeServiceTests`, () => {
 
     service.getEarthquakes().subscribe((earthquakes) => {
       expect(earthquakes).toEqual(mockEarthquakes());
+
+      expect(TestUtilities.MOCK_URL_CALLED).toBeTruthy();
     });
   });
 });

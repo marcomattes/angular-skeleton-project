@@ -7,6 +7,7 @@ import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
 
 import { Earthquake } from './earthquake';
+import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
 
 @Injectable()
 export class EarthquakeService {
@@ -21,7 +22,7 @@ export class EarthquakeService {
 
   private mapEarthquakes(response: Response): Array<Earthquake> {
     let earthquakeFeatures: Array<{}> = response.json().features;
-    let earthquakes: Array<Earthquake> = []
+    let earthquakes: Array<Earthquake> = [];
     let displayTotal: number = earthquakeFeatures.length < EarthquakeService.NUMBER_TO_DISPLAY ?
       earthquakeFeatures.length :
       EarthquakeService.NUMBER_TO_DISPLAY;
@@ -45,7 +46,7 @@ export class EarthquakeService {
     return earthquakes;
   }
 
-  private handleError(error: Response) {
+  private handleError(error: Response): ErrorObservable {
     return Observable.throw(error || 'Server Error');
   }
 }
