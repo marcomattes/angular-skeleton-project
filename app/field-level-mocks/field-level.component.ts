@@ -1,14 +1,20 @@
-import { Injectable } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { FieldLevelService } from './field-level.service';
 
-@Injectable()
+@Component({
+    templateUrl: 'field-level.component.html'
+})
 export class FieldLevelComponent {
-    fieldLevelService: FieldLevelService = new FieldLevelService();
+    private _fieldLevelService: FieldLevelService;
 
     constructor() { }
 
     useService(): boolean {
-        return this.fieldLevelService.doSomething();
+        return this.getFieldLevelService().doSomething();
+    }
+
+    getFieldLevelService(): FieldLevelService {
+        return new FieldLevelService();
     }
 }

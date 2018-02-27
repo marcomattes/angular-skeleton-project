@@ -8,40 +8,39 @@ import 'rxjs/add/operator/catch';
 
 import { Earthquake } from './earthquake';
 import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
+import { EarthquakeFeature } from './earthquake-feature';
 
 @Injectable()
 export class EarthquakeService {
   static readonly URL: string = 'http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson';
-  private static readonly NUMBER_TO_DISPLAY: number = 20;
+  static readonly NUMBER_TO_DISPLAY: number = 20;
 
   constructor(private http: Http) { }
 
   getEarthquakes(): Observable<Earthquake[]> {
-    return this.http.get(EarthquakeService.URL).map(this.mapEarthquakes).catch(this.handleError);
+    return this.http.get(EarthquakeService.URL).map(this._mapEarthquakes).catch(this.handleError);
   }
 
-  private mapEarthquakes(response: Response): Array<Earthquake> {
-    let earthquakeFeatures: Array<{}> = response.json().features;
+  _mapEarthquakes(response: Response, index: number): Array<Earthquake> {
+    let earthquakeFeatures: Array<EarthquakeFeature> = response.json().features;
     let earthquakes: Array<Earthquake> = [];
-    let displayTotal: number = earthquakeFeatures.length < EarthquakeService.NUMBER_TO_DISPLAY ?
-      earthquakeFeatures.length :
-      EarthquakeService.NUMBER_TO_DISPLAY;
 
-    for (let count = 0; count < displayTotal; count++) {
-      let earthquakeProperties: {} = earthquakeFeatures[count]['properties'];
-      let earthquakeCoordinates: Array<number> = earthquakeFeatures[count]['geometry']['coordinates'];
+    earthquakeFeatures.forEach((earthquakeFeature, index) => {
+      if (index === EarthquakeService.NUMBER_TO_DISPLAY) {
+        return;
+      }
 
       let earthquake: Earthquake = {
-        usgsTitle: earthquakeProperties['title'],
-        time: earthquakeProperties['time'],
-        magnitude: earthquakeProperties['mag'],
-        url: earthquakeProperties['url'],
-        latitude: earthquakeCoordinates[0],
-        longitude: earthquakeCoordinates[1]
+        usgsTitle: earthquakeFeature.properties.title,
+        time: earthquakeFeature.properties.time,
+        magnitude: earthquakeFeature.properties.mag,
+        url: earthquakeFeature.properties.url,
+        latitude: earthquakeFeature.geometry[0],
+        longitude: earthquakeFeature.geometry[1]
       };
 
       earthquakes.push(earthquake);
-    }
+    });
 
     return earthquakes;
   }
